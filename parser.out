@@ -1,0 +1,110 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> PROGRAM ID COLON programAux
+Rule 2     programAux -> vars bloque COLON vars
+Rule 3     programAux -> vars bloque
+Rule 4     programAux -> vars
+Rule 5     vars -> VAR d
+Rule 6     varsAux -> COLON tipo SEMICOLON w
+Rule 7     varsAux -> COMA d
+Rule 8     w -> d
+Rule 9     w -> empty
+Rule 10    d -> ID varsAux
+Rule 11    tipo -> INT
+Rule 12    tipo -> FLOAT
+Rule 13    bloque -> OPENC blockAux CLOSEC
+Rule 14    blockAux -> estatuto
+Rule 15    blockAux -> estatuto blockAux
+Rule 16    blockAux -> empty
+Rule 17    estatuto -> asignacion
+Rule 18    estatuto -> condicion
+Rule 19    estatuto -> escritura
+Rule 20    asignacion -> ID EQUAL expresion SEMICOLON
+Rule 21    escritura -> OUTPUTPRINT OPENP escrituraAux CLOSEP SEMICOLON
+Rule 22    escrituraAux -> expresion
+Rule 23    escrituraAux -> expresion COMA escrituraAux
+Rule 24    escrituraAux -> CTESTRING
+Rule 25    escrituraAux -> CTEI
+Rule 26    escrituraAux -> CTEF
+Rule 27    condicion -> CONDITION OPENP expresion CLOSEP condicionAux SEMICOLON
+Rule 28    condicionAux -> bloque
+Rule 29    condicionAux -> bloque ELSE bloque
+Rule 30    expresion -> exp x
+Rule 31    x -> GREATERTHAN exp
+Rule 32    x -> LESSTHAN exp
+Rule 33    x -> DIFERENT exp
+Rule 34    x -> empty
+Rule 35    exp -> termino
+Rule 36    exp -> termino PLUS exp
+Rule 37    exp -> termino MINUS exp
+Rule 38    termino -> factor
+Rule 39    termino -> factor TIMES termino
+Rule 40    termino -> factor DIVIDE termino
+Rule 41    factor -> OPENP expresion CLOSEP
+Rule 42    factorB -> varcte
+Rule 43    factorB -> PLUS varcte
+Rule 44    factorB -> MINUS varcte
+Rule 45    varcte -> ID
+Rule 46    varcte -> CTEI
+Rule 47    varcte -> CTEF
+Rule 48    empty -> <empty>
+
+Terminals, with rules where they appear
+
+CLOSEC               : 13
+CLOSEP               : 21 27 41
+COLON                : 1 2 6
+COMA                 : 7 23
+CONDITION            : 27
+CTEF                 : 26 47
+CTEI                 : 25 46
+CTESTRING            : 24
+DIFERENT             : 33
+DIVIDE               : 40
+ELSE                 : 29
+EQUAL                : 20
+FLOAT                : 12
+GREATERTHAN          : 31
+ID                   : 1 10 20 45
+INT                  : 11
+LESSTHAN             : 32
+MINUS                : 37 44
+OPENC                : 13
+OPENP                : 21 27 41
+OUTPUTPRINT          : 21
+PLUS                 : 36 43
+PROGRAM              : 1
+SEMICOLON            : 6 20 21 27
+TIMES                : 39
+VAR                  : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+asignacion           : 17
+blockAux             : 13 15
+bloque               : 2 3 28 29 29
+condicion            : 18
+condicionAux         : 27
+d                    : 5 7 8
+empty                : 9 16 34
+escritura            : 19
+escrituraAux         : 21 23
+estatuto             : 14 15
+exp                  : 30 31 32 33 36 37
+expresion            : 20 22 23 27 41
+factor               : 38 39 40
+factorB              : 
+programAux           : 1
+programa             : 0
+termino              : 35 36 37 39 40
+tipo                 : 6
+varcte               : 42 43 44
+vars                 : 2 2 3 4
+varsAux              : 10
+w                    : 6
+x                    : 30
+

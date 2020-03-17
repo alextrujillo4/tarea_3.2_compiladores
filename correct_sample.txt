@@ -1,0 +1,6 @@
+program name : var mivariable : int ; {
+    cond(1<4){
+        output("Imprimiendo");
+    };
+ }
+
